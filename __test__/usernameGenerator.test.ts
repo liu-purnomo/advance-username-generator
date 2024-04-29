@@ -7,7 +7,7 @@ describe('usernameGenerator Tests', () => {
             fullName: 'John Doe',
             usedUsernames: [],
             allowSymbols: true,
-            length: 10,
+            minLength: 10,
         };
         const result = await usernameGenerator(options);
         expect(result).toBeDefined();
@@ -19,7 +19,7 @@ describe('usernameGenerator Tests', () => {
             fullName: 'John John',
             usedUsernames: [],
             allowSymbols: false,
-            length: 10,
+            minLength: 10,
         };
         const result = await usernameGenerator(options);
         expect(result).toBeDefined();
@@ -31,7 +31,7 @@ describe('usernameGenerator Tests', () => {
             fullName: 'John',
             usedUsernames: [],
             allowSymbols: true,
-            length: 5,
+            minLength: 5,
         };
         const result = await usernameGenerator(options);
         expect(result).toBeDefined();
@@ -44,7 +44,7 @@ describe('usernameGenerator Tests', () => {
             fullName,
             usedUsernames: [fullName.toLowerCase()],
             allowSymbols: true,
-            length: 12,
+            minLength: 12,
         };
         const result = await usernameGenerator(options);
         expect(result).toBeDefined();
@@ -56,7 +56,7 @@ describe('usernameGenerator Tests', () => {
             fullName: 'John-Doe',
             usedUsernames: [],
             allowSymbols: false,
-            length: 10,
+            minLength: 10,
         };
         const result = await usernameGenerator(options);
         expect(result).toBeDefined();
@@ -68,7 +68,7 @@ describe('usernameGenerator Tests', () => {
             fullName: 'John_Doe',
             usedUsernames: [],
             allowSymbols: true,
-            length: 10,
+            minLength: 10,
         };
         const result = await usernameGenerator(options);
         expect(result).toBeDefined();

@@ -1,10 +1,11 @@
 {
     "name": "advance-username-generator",
-    "version": "2.0.2",
+    "version": "2.1.1",
     "description": "advance-username-generator is a simple Node.js package that provides a utility function to generate unique usernames. It can be used in applications where a random or unique username is required, such as user registration systems, chat applications, or any scenario where unique identifiers are needed.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
+        "dev": "npx ts-node src/index.ts",
         "build": "tsc --declaration",
         "start": "node dist/index.js",
         "test": "jest --watchAll=false"
@@ -28,6 +29,7 @@
         "@types/jest": "^29.5.12",
         "jest": "^29.7.0",
         "ts-jest": "^29.1.2",
+        "ts-node": "^10.9.2",
         "typescript": "^5.3.3"
     },
     "jest": {

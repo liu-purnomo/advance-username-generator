@@ -16,9 +16,9 @@ export interface UsernameGeneratorInput {
     usedUsernames?: string[];
 
     /**
-     * Optional length of the generated username. If not provided, defaults to 8.
+     * Minimum length of the generated username. If not provided, defaults to 8.
      */
-    length?: number;
+    minLength?: number;
 
     /**
      * Optional flag indicating whether symbols are allowed in the username.
