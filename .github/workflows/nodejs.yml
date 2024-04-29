@@ -1,0 +1,38 @@
+name: Node.js CI and NPM Publish
+
+on:
+    push:
+        branches: [main]
+    release:
+        types: [created]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3 # Pastikan sudah versi terbaru
+            - name: Setup Node.js
+              uses: actions/setup-node@v3 # Pastikan sudah versi terbaru
+              with:
+                  node-version: '20' # Pastikan menggunakan Node.js versi 20
+                  cache: 'npm' # Menambahkan caching untuk npm
+            - name: Install dependencies
+              run: npm install
+            - name: Run tests
+              run: npm test
+
+    publish-npm:
+        needs: build
+        if: github.event_name == 'release' && github.event.action == 'created'
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3 # Pastikan sudah versi terbaru
+            - name: Setup Node.js for publishing
+              uses: actions/setup-node@v3 # Pastikan sudah versi terbaru
+              with:
+                  node-version: '20' # Konsisten dengan versi di job build
+                  registry-url: https://registry.npmjs.org/
+            - name: Publish to npm
+              run: npm publish --access=public
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_SECRET}}

@@ -41,7 +41,7 @@ Generates a unique username based on provided options.
 Below is an example of how `usernameGenerator` can be used within an Express.js controller:
 
 ```typescript
-import { usernameGenerator, UsernameGeneratorInput } from 'username-generator';
+import { usernameGenerator, UsernameGeneratorInput } from 'advance-username-generator';
 import { Request, Response } from 'express';
 
 async function generateAndSendUsername(req: Request, res: Response) {
